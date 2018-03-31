@@ -76,7 +76,7 @@ func inspect(docker *dockerapi.Client, id string) *bytes.Buffer {
 }
 
 func trigger(hook []string, event, id string, docker *dockerapi.Client) {
-	log.Println("info: trigger:", id[:12], event)
+	log.Println("info: trigger:", id, event)
 	hook = append(hook, event, id)
 	var cmd *exec.Cmd
 	if *shell && os.Getenv("SHELL") != "" {
